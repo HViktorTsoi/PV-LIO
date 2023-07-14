@@ -6,3 +6,7 @@ Log/*.pdf
 .vscode/c_cpp_properties.json
 .vscode/settings.json
 PCD/*.pcd
+.gitbak
+.idea
+cmake-build-debug
+scripts
