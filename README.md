@@ -126,7 +126,7 @@ Step B: Run below
 Step C: Run LiDAR's ros driver or play rosbag.
 
 
-### 3.3 For Robosense, Hesai, etc. (Robosense as an example)
+### 3.4 For Robosense, Hesai, etc. (Robosense as an example)
 
 Step A: Setup before run
 
