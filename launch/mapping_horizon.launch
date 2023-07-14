@@ -1,0 +1,27 @@
+<launch>
+    <!-- Launch file for velodyne16 VLP-16 LiDAR -->
+
+    <arg name="rviz" default="true"/>
+    <arg name="debug" default="false"/>
+
+    <rosparam command="load" file="$(find pv_lio)/config/avia_indoor.yaml"/>
+
+    <group if="$(eval arg('debug') == False)">
+        <node pkg="pv_lio" type="pv_lio_node" name="pv_lio_node" output="screen"/>
+    </group>
+    <!--- RS to Velodyne -->
+    <node pkg="rs_to_velodyne" type="pandar_to_velodyne" name="pandar_to_velodyne" output="screen" args="XYZIRT XYZIRT">
+        <!--        <remap from="/rslidar_points" to="/RSHELIOS1/rslidar_points"/>-->
+    </node>
+
+    <!--- RS to Velodyne -->
+    <node pkg="rs_to_velodyne" type="rs_to_velodyne" name="rs_to_velodyne" output="screen" args="XYZIRT XYZIRT">
+        <!--        <remap from="/rslidar_points" to="/RSHELIOS1/rslidar_points"/>-->
+    </node>
+
+    <group if="$(arg rviz)">
+        <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz"
+              args="-d $(find pv_lio)/config/rviz_cfg/voxel_mapping.rviz"/>
+    </group>
+
+</launch>

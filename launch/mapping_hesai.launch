@@ -1,0 +1,23 @@
+<launch>
+    <!-- Launch file for velodyne16 VLP-16 LiDAR -->
+
+    <arg name="rviz" default="true"/>
+    <arg name="debug" default="false"/>
+
+    <rosparam command="load" file="$(find pv_lio)/config/hesai.yaml"/>
+
+    <group if="$(eval arg('debug') == False)">
+        <node pkg="pv_lio" type="pv_lio_node" name="pv_lio_node" output="screen"/>
+    </group>
+
+    <!--- pandar to Velodyne -->
+    <node pkg="pv_lio" type="pandar_to_velodyne" name="pandar_to_velodyne" output="screen" args="XYZIRT XYZIRT">
+        <remap from="/hesai/pandar" to="/hesai/pandar"/>
+    </node>
+
+    <group if="$(arg rviz)">
+        <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz"
+              args="-d $(find pv_lio)/config/rviz_cfg/voxel_mapping.rviz"/>
+    </group>
+
+</launch>
