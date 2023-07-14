@@ -9,17 +9,17 @@ We utilize [VoxelMap](https://github.com/hku-mars/VoxelMap) as the Local Map man
 ### Hilti 2022 exp11
 
 <div align="left">
-<img src="/home/hvt/Code/slam_ws/src/PV_LIO/doc/hilti11.gif" width=95% />
+<img src="doc/hilti11.gif" width=95% />
 </div>
 
 ### Hilti 2022 exp15
 <div align="left">
-<img src="/home/hvt/Code/slam_ws/src/PV_LIO/doc/hilti15.gif" width=95% />
+<img src="doc/hilti15.gif" width=95% />
 </div>
 
 ### Hilti 2022 exp03
 <div align="left">
-<img src="/home/hvt/Code/slam_ws/src/PV_LIO/doc/hilti03.gif" width=95% />
+<img src="doc/hilti03.gif" width=95% />
 </div>
 
 ### More Results
@@ -27,12 +27,12 @@ We utilize [VoxelMap](https://github.com/hku-mars/VoxelMap) as the Local Map man
 
 **Right**: Livox AVIA, long_tunnel dataset
 <div align="left">
-<img src="/home/hvt/Code/slam_ws/src/PV_LIO/doc/stair.gif" width=47.5% /> <img src="/home/hvt/Code/slam_ws/src/PV_LIO/doc/tunnel.gif" width=47.5% />
+<img src="doc/stair.gif" width=47.5% /> <img src="doc/tunnel.gif" width=47.5% />
 </div>
 
 Visualization of Voxel Map with Uncertainty (Hilti 2022 exp11)
 <div align="left">
-<img src="/home/hvt/Code/slam_ws/src/PV_LIO/doc/voxelmap.jpg" width=95.5% />
+<img src="doc/voxelmap.jpg" width=95.5% />
 </div>
 
 
@@ -179,7 +179,7 @@ Step C: Run LiDAR's ros driver or play rosbag.
 ### 4.1 Robosense 16 Rosbag 
 
 <div align="left">
-<img src="/home/hvt/Code/slam_ws/src/PV_LIO/doc/stair.jpg" width=95% />
+<img src="doc/stair.jpg" width=95% />
 </div>
 
 Files: Can be downloaded from [Baidu Pan (password:4kpf)](https://pan.baidu.com/s/1VHIVYo2LAyFKzMzdilOZlQ) or [Google Drive](https://drive.google.com/drive/folders/1f-VQOORs1TA5pT-OO_7-rG0kW5F5UoGG?usp=sharing)
