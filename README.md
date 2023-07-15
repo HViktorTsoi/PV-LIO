@@ -5,24 +5,12 @@ We utilize [VoxelMap](https://github.com/hku-mars/VoxelMap) as the Local Map man
 
 ### Some test results are shown below:
 
-
-### Hilti 2022 exp11
-
+#### Visualization of voxelmap with uncertainty (Hilti 2022 exp11)
 <div align="left">
-<img src="doc/hilti11.gif" width=95% />
+<img src="doc/voxelmap.jpg" width=95.5% />
 </div>
 
-### Hilti 2022 exp15
-<div align="left">
-<img src="doc/hilti15.gif" width=95% />
-</div>
-
-### Hilti 2022 exp03
-<div align="left">
-<img src="doc/hilti03.gif" width=95% />
-</div>
-
-### More Results
+#### Narrow Environment Test
 **Left**: Robosense RS16, staircase_crazy_rotation dataset
 
 **Right**: Livox AVIA, long_tunnel dataset
@@ -30,9 +18,20 @@ We utilize [VoxelMap](https://github.com/hku-mars/VoxelMap) as the Local Map man
 <img src="doc/stair.gif" width=47.5% /> <img src="doc/tunnel.gif" width=47.5% />
 </div>
 
-Visualization of Voxel Map with Uncertainty (Hilti 2022 exp11)
+#### Hilti 2022 exp11
+
 <div align="left">
-<img src="doc/voxelmap.jpg" width=95.5% />
+<img src="doc/hilti11.gif" width=95% />
+</div>
+
+#### Hilti 2022 exp15
+<div align="left">
+<img src="doc/hilti15.gif" width=95% />
+</div>
+
+#### Hilti 2022 exp03
+<div align="left">
+<img src="doc/hilti03.gif" width=95% />
 </div>
 
 
@@ -134,7 +133,7 @@ Edit ``` launch/mapping_robosense.launch ```,  find and modify the following lin
 ```
 <remap from="/rslidar_points" to="/your_lidar_topic"/>
 ```
-Fill `/your_lidar_topic` with your actually LiDAR topic name.
+Fill `/your_lidar_topic` with your actual LiDAR topic name.
 
 Step B:
 Edit ``` config/robosense.yaml ``` to set the below parameters:
@@ -199,8 +198,9 @@ rosbag play *
 
 
 ## Acknowledgments
-Thanks a lot for the authors of [VoxelMap](https://github.com/hku-mars/VoxelMap), [IKFoM](https://github.com/hku-mars/IKFoM) and [FAST-LIO](https://github.com/hku-mars/FAST_LIO).
+Thanks a lot for the authors of [VoxelMap](https://github.com/hku-mars/VoxelMap), [IKFoM](https://github.com/hku-mars/IKFoM) and [FAST-LIO](https://github.com/hku-mars/FAST_LIO);
 
+Thanks to Xiaokai for his help with deriving the covariance propagation.
 
 ## TBD
 1. Handle conditions where nMeasurements < nDof;
