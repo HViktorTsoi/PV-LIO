@@ -54,7 +54,7 @@ Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_dr
 
 *Remarks:*
 - The **livox_ros_driver** must be installed and **sourced** before run any PV-LIO luanch file.
-- How to source? The easiest way is add the line ``` source $Licox_ros_driver_dir$/devel/setup.bash ``` to the end of file ``` ~/.bashrc ```, where ``` $Licox_ros_driver_dir$ ``` is the directory of the livox ros driver workspace (should be the ``` ws_livox ``` directory if you completely followed the livox official document).
+- How to source? The easiest way is add the line ``` source $Livox_ros_driver_dir$/devel/setup.bash ``` to the end of file ``` ~/.bashrc ```, where ``` $Livox_ros_driver_dir$ ``` is the directory of the livox ros driver workspace (should be the ``` ws_livox ``` directory if you completely followed the livox official document).
 
 
 ## 2. Build
@@ -187,8 +187,9 @@ Run:
 ```
 roslaunch pv_lio mapping_robosense.launch
 cd YOUR_BAG_DOWNLOADED_PATH
-rosbag play *
+rosbag play *.bag
 ```
+**Important:** The 3 bags are from the same dataset sequence, so they should be play sequentially, rather than be played alone.
 
 ## Related Works
 1. [VoxelMap](https://github.com/hku-mars/VoxelMap): An efficient and probabilistic adaptive voxel mapping method for LiDAR odometry.
