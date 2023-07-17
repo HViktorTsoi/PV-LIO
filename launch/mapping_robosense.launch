@@ -5,6 +5,7 @@
     <arg name="debug" default="false"/>
 
     <rosparam command="load" file="$(find pv_lio)/config/robosense.yaml"/>
+<!--    <rosparam command="load" file="$(find pv_lio)/config/robosense_outdoor.yaml"/>-->
 
     <group if="$(eval arg('debug') == False)">
         <node pkg="pv_lio" type="pv_lio_node" name="pv_lio_node" output="screen"/>
