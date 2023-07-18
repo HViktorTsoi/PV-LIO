@@ -35,6 +35,11 @@ We utilize [VoxelMap](https://github.com/hku-mars/VoxelMap) as the Local Map man
 </div>
 
 
+
+## Update
+- 2023.07.18: Fix eigen failed error for Ubuntu 20.04. 
+
+
 ## 1. Prerequisites
 
 ### 1.1 **Ubuntu** and **ROS**
