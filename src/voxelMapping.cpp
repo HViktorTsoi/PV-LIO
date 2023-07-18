@@ -557,8 +557,8 @@ void transformLidar(const state_ikfom &state_point, const PointCloudXYZI::Ptr &i
     for (size_t i = 0; i < input_cloud->size(); i++) {
         pcl::PointXYZINormal p_c = input_cloud->points[i];
         Eigen::Vector3d p_lidar(p_c.x, p_c.y, p_c.z);
-        // FIXME 这里需要处理LI外参
-        auto p_body = state_point.rot * (state_point.offset_R_L_I * p_lidar + state_point.offset_T_L_I) + state_point.pos;
+        // HACK we need to specify p_body as a V3D type!!!
+        V3D p_body = state_point.rot * (state_point.offset_R_L_I * p_lidar + state_point.offset_T_L_I) + state_point.pos;
         PointType pi;
         pi.x = p_body(0);
         pi.y = p_body(1);
