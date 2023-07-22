@@ -58,7 +58,7 @@ Eigen  >= 3.3.4, Follow [Eigen Installation](http://eigen.tuxfamily.org/index.ph
 Follow [livox_ros_driver Installation](https://github.com/Livox-SDK/livox_ros_driver).
 
 *Remarks:*
-- The **livox_ros_driver** must be installed and **sourced** before run any PV-LIO luanch file.
+- The **livox_ros_driver** must be installed and **sourced** before run any PV-LIO launch file.
 - How to source? The easiest way is add the line ``` source $Livox_ros_driver_dir$/devel/setup.bash ``` to the end of file ``` ~/.bashrc ```, where ``` $Livox_ros_driver_dir$ ``` is the directory of the livox ros driver workspace (should be the ``` ws_livox ``` directory if you completely followed the livox official document).
 
 
