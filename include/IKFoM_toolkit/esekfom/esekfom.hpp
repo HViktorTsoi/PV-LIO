@@ -2044,36 +2044,23 @@ public:
             */
 
             if(n > dof_Measurement)
-            {
-                std::printf("\n\n\n Too few measurement, n > dof_Measurement!!!\n\n\n");
-                //#ifdef USE_sparse
-                //Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic> K_temp = h_x * P_ * h_x.transpose();
-                //spMt R_temp = h_v * R_ * h_v.transpose();
-                //K_temp += R_temp;
-                Eigen::Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic> h_x_cur = Eigen::Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic>::Zero(dof_Measurement, n);
-                h_x_cur.topLeftCorner(dof_Measurement, 12) = h_x_;
-                /*
-                h_x_cur.col(0) = h_x_.col(0);
-                h_x_cur.col(1) = h_x_.col(1);
-                h_x_cur.col(2) = h_x_.col(2);
-                h_x_cur.col(3) = h_x_.col(3);
-                h_x_cur.col(4) = h_x_.col(4);
-                h_x_cur.col(5) = h_x_.col(5);
-                h_x_cur.col(6) = h_x_.col(6);
-                h_x_cur.col(7) = h_x_.col(7);
-                h_x_cur.col(8) = h_x_.col(8);
-                h_x_cur.col(9) = h_x_.col(9);
-                h_x_cur.col(10) = h_x_.col(10);
-                h_x_cur.col(11) = h_x_.col(11);
-                */
-
-//                Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic> K_ = P_ * h_x_cur.transpose() * (h_x_cur * P_ * h_x_cur.transpose()/R + Eigen::Matrix<double, Dynamic, Dynamic>::Identity(dof_Measurement, dof_Measurement)).inverse()/R;
-//                K_h = K_ * dyn_share.h;
-//                K_x = K_ * h_x_cur;
-                //#else
-                //	K_= P_ * h_x.transpose() * (h_x * P_ * h_x.transpose() + h_v * R * h_v.transpose()).inverse();
-                //#endif
-            }
+			{
+				std::printf("\n\n\n Too few measurement, n > dof_Measurement!!!\n\n\n");
+				Eigen::Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic> H_full =
+					Eigen::Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic>::Zero(dof_Measurement, n);
+				H_full.topLeftCorner(dof_Measurement, 12) = h_x_;
+				
+				// Convert lazy-evaluated product and diagonal matrix to dense matrices:
+				Eigen::Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic> S =
+					(H_full * P_ * H_full.transpose()).eval() + dyn_share.R.asDiagonal().toDenseMatrix();
+				
+				// Compute the Kalman gain:
+				Eigen::Matrix<scalar_type, Eigen::Dynamic, Eigen::Dynamic> K_ =
+					P_ * H_full.transpose() * S.inverse();
+				
+				K_h = K_ * dyn_share.h;
+				K_x = K_ * H_full;
+			}
             else
             {
 #ifdef USE_sparse
